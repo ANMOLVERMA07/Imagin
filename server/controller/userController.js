@@ -39,7 +39,7 @@ export const signin = async(req,res) => {
 
         const user = await User.findOne({email});
         if(!user){
-            return res.status(500).json({success:false,message:'user doesnt exist,Please Signup first'})
+            return res.status(500).json({success:false,message:'user does not exist,Please Signup first'})
         }
 
         const isMatch = await bcrypt.compare(password,user.password);
@@ -47,7 +47,7 @@ export const signin = async(req,res) => {
             return res.status(500).json({success:false,message:'Password is incorrect'})
         }else{
             const token = jwt.sign({id:user._id},process.env.JWT_SECRET);
-            res.status(201).json({ success:true,token,user:{name:user.fullName}}); 
+            res.status(201).json({ success:true,token,user:{fullName:user.fullName}}); 
         }
     } catch (error) {
         console.log(error);

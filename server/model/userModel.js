@@ -1,4 +1,4 @@
-import {Schema,model} from "mongoose";
+import {Schema,model, models} from "mongoose";
 
 const userSchema = new Schema({
     fullName:{
@@ -20,6 +20,6 @@ const userSchema = new Schema({
     }
 })
 
-const User = model.User || model("User",userSchema);
+const User = models.User || model("User",userSchema);
 
 export default User;

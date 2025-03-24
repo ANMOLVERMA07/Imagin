@@ -1,4 +1,4 @@
-import {Schema,model,models} from "mongoose";
+import {Schema,model} from "mongoose";
 
 const transactionSchema = new Schema({
     userId:{
@@ -24,6 +24,6 @@ const transactionSchema = new Schema({
     date: { type:Number },
 })
 
-const Transaction = models.Transaction || model("Transaction",transactionSchema);
+const Transaction = model("Transaction",transactionSchema);
 
 export default Transaction;
